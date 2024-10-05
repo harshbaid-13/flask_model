@@ -14,13 +14,17 @@ from nltk.data import find
 
 def setup_nltk():
     try:
-        # Check if stopwords data is already downloaded
+        # Check if stopwords, wordnet, and punkt data are already downloaded
         find('corpora/stopwords.zip')
-        print("Stopwords already downloaded.")
+        find('corpora/wordnet.zip')
+        find('tokenizers/punkt.zip')
+        print("NLTK data already downloaded.")
     except LookupError:
-        # If stopwords are not downloaded, download them
-        print("Downloading stopwords...")
+        # If any of the data is not downloaded, download them
+        print("Downloading NLTK data...")
         nltk.download('stopwords')
+        nltk.download('wordnet')
+        nltk.download('punkt')
 
 setup_nltk()  # Call this function to check and download NLTK data if necessary
 
